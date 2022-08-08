@@ -4,4 +4,5 @@ deployment:
     - export DEPLOYPATH=/home/codj2387/public_html/
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp -R storage $DEPLOYPATH
+    - /bin/cp -R demo $DEPLOYPATH
     # - /bin/cp style.css $DEPLOYPATH

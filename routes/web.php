@@ -1,5 +1,6 @@
 <?php
 
+use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landing-page');
-});
+// Route::get('/', function () {
+//     return view('landing-page');
+// });
 
+
+Route::get('/', ['uses' => 'App\Http\Controllers\HomeController@index', 'as' => 'home']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

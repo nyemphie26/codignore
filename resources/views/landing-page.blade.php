@@ -24,7 +24,7 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="icon" type="image/png" href="../assets/img//favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    CodIgnore
+    {{ setting('site.title') }}
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -42,8 +42,8 @@ The above copyright notice and this permission notice shall be included in all c
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/paper-kit/index.html" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom" target="_blank">
-          Codignore
+        <a class="navbar-brand" href="{{ env('APP_URL') }}" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom" target="_blank">
+          {{ setting('site.title') }}
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar bar1"></span>
@@ -53,12 +53,12 @@ The above copyright notice and this permission notice shall be included in all c
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="../index.html" class="nav-link"><i class="nc-icon nc-layout-11"></i> Components</a>
           </li>
           <li class="nav-item">
             <a href="https://demos.creative-tim.com/paper-kit-2/docs/1.0/getting-started/introduction.html" target="_blank" class="nav-link"><i class="nc-icon nc-book-bookmark"></i> Documentation</a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
               <i class="fa fa-twitter"></i>
@@ -90,30 +90,21 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- End Navbar -->
   <div class="page-header" data-parallax="true" style="background-image: url('{{ asset('storage/img/daniel-olahh.jpg') }}');">
     <div class="filter"></div>
-    <div class="container">
-      {{-- <div class="motto text-center">
-        <h1>CODIGNORE</h1>
-        <h3>You can (never) ignore your code</h3>
-        <br />
-        <a href="#portFolio" class="btn btn-outline-neutral btn-round">My Projects</a>
-        <a href="#aboutMe" class="btn btn-outline-neutral btn-round">About Me</a>
-      </div> --}}
-
-        <div class="title-brand">
-          <h1 class="presentation-title">Paper Kit 2</h1>
-          <div class="fog-low">
-            <img src="{{ asset('storage/img/fog-low.png') }}" alt="">
-          </div>
-          <div class="fog-low right">
-            <img src="{{ asset('storage/img/fog-low.png') }}" alt="">
-          </div>
+    <div class="content-center">
+      <div class="container">
+        <div class="motto text-center">
+          <h1>CODIGNORE</h1>
+          <h3>You can (never) ignore your code</h3>
+          <br />
+          <a href="#firstSection" class="btn btn-outline-neutral btn-round">My Projects</a> &nbsp;
+          <a href="#secondSection" class="btn btn-outline-neutral btn-round">About Me</a>
         </div>
-        <h2 class="presentation-subtitle text-center">Make your mark with a Free Bootstrap 4 UI Kit! </h2>
-      
+      </div>
     </div>
+    <div class="moving-clouds" style="background-image: url('{{ asset('storage/img/clouds.png') }}'); "></div>
   </div>
   <div class="main">
-    <div class="section text-center" id="portFolio">
+    <div class="section text-center" id="firstSection">
       <div class="container">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
@@ -125,20 +116,22 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
         <br/>
         <br/>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="info">
-              <div class="icon icon-danger">
-                <i class="nc-icon nc-album-2"></i>
-              </div>
-              <div class="description">
-                <h4 class="info-title">Landing Page</h4>
-                <p class="description">Some of landing page project of my client(s).</p>
-                <a href="javascript:;" class="btn btn-link btn-danger">See more</a>
+        <div class="row justify-content-center">
+          @foreach ($categories as $item)
+            <div class="col-md-3">
+              <div class="info">
+                <div class="icon icon-danger">
+                  <i class="{{ $item->icon }}"></i>
+                </div>
+                <div class="description">
+                  <h4 class="info-title">{{ $item->title }}</h4>
+                  <p class="description">{{ $item->desc }}</p>
+                  <a href="javascript:;" class="btn btn-link btn-danger">See more</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-3">
+          @endforeach
+          {{-- <div class="col-md-3">
             <div class="info">
               <div class="icon icon-danger">
                 <i class="nc-icon nc-bulb-63"></i>
@@ -173,11 +166,11 @@ The above copyright notice and this permission notice shall be included in all c
                 <a href="javascript:;" class="btn btn-link btn-danger">See more</a>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
-    <div class="section section-dark text-center" id="aboutMe">
+    <div class="section section-dark text-center" id="secondSection">
       <div class="container">
         <h2 class="title">Let's talk about me</h2>
         <div class="row justify-content-md-center">

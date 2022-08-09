@@ -3,6 +3,8 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/codj2387/public_html/
     - /bin/cp public/index.php $DEPLOYPATH
-    - /bin/cp -R public/storage $DEPLOYPATH
+    - /bin/cp -R public/css $DEPLOYPATH
+    - /bin/cp -R public/scss $DEPLOYPATH
+    - /bin/cp -R public/js $DEPLOYPATH
     # - /bin/cp/public -R demo $DEPLOYPATH
     # - /bin/cp style.css $DEPLOYPATH

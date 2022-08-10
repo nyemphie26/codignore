@@ -20,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', ['uses' => 'App\Http\Controllers\HomeController@index', 'as' => 'home']);
+Route::get('/posts/{slug}', ['uses' => 'App\Http\Controllers\BlogController@index', 'as' => 'blog.browse']);
+Route::get('/posts/{slug}/{prdSlug}', ['uses' => 'App\Http\Controllers\BlogController@read', 'as' => 'blog.read']);
+
+// Route::get('/posts/{slug}', function () {
+//     return view('blog.detail');
+// });
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

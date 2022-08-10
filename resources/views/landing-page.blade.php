@@ -126,7 +126,7 @@ The above copyright notice and this permission notice shall be included in all c
                 <div class="description">
                   <h4 class="info-title">{{ $item->title }}</h4>
                   <p class="description">{{ $item->desc }}</p>
-                  <a href="{{ route('blog.browse',[slug=>$item->slug]) }}" class="btn btn-link btn-danger">See more</a>
+                  <a href="{{ route('blog.browse',$item->slug) }}" class="btn btn-link btn-danger">See more</a>
                 </div>
               </div>
             </div>

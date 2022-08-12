@@ -88,7 +88,7 @@ The above copyright notice and this permission notice shall be included in all c
     </div>
   </nav>
   <!-- End Navbar -->
-  <div class="page-header" data-parallax="true" style="background-image: url('{{ asset('storage/img/daniel-olahh.jpg') }}');">
+  <div class="page-header" data-parallax="true" style="background-image: url('{{Storage :: url ('storage/img/daniel-olahh.jpg') }}');">
     <div class="filter"></div>
     <div class="content-center">
       <div class="container">
